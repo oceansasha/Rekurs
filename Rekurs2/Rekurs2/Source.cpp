@@ -1,24 +1,21 @@
 #include <iostream>
 using namespace std;
 
-int F(int i);
-int G(int i);
+void func(int A);
 
-
-int F(int i)  {
-	if (i == 1) return -2;
-	else
-		return 5 * F(i - 1) - G(i - 1);
-}
-
-int G(int i)   {
-	if (i == 1) return 2;
-	else
-		return 2 * F(i - 1) - G(i - 1);
+void func(int A) {
+	if (A == 0)	 cout << endl;
+	else {
+		cout << A % 10;
+		func(A / 10);
+	}
 }
 
 int main() {
-	for (int i = 1; i < 11; i++)	cout << "F(i) = " << F(i) << endl;
-	cout << endl;
-	for (int i = 1; i < 11; i++)	cout << "G(i) = " << G(i) << endl;
+	setlocale(LC_ALL, "");
+	int A;
+	cout << "Введите число: " << endl;
+	cin >> A;
+	cout << "Изменённое число: " << endl;
+	func(A);
 }
